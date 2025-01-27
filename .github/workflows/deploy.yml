@@ -3,7 +3,7 @@ name: Deploy Mayaops docs to GitHub Pages
 on:
   push:
     branches:
-      - master  # Change this if your main branch is named something else
+      - master # Change this if your main branch is named something else
 
 jobs:
   deploy:
@@ -12,6 +12,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
+      - name: Set Git Identity
+        run: |
+          git config --global user.email "bharadwajpalanisamy222@gmail.com"
+          git config --global user.name "bharad22"
+
       - name: Install dependencies
         run: |
           yarn install
@@ -19,6 +24,7 @@ jobs:
 
       - name: Deploy to GitHub Pages
         env:
-          GIT_USER: "mayaops"  # Replace with your GitHub username
+          GIT_USER: "mayaops"
+          USE_SSH: false
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: npm run deploy
