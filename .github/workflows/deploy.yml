@@ -26,5 +26,7 @@ jobs:
         env:
           GIT_USER: "mayaops"
           USE_SSH: false
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: npm run deploy
+          GHCR_TOKEN: ${{ secrets.GHCR_TOKEN }}
+        run: |
+          git remote set-url origin https://x-access-token:${{ secrets.GHCR_TOKEN }}@github.com/mayaops/mayaops-docs.git
+          npm run deploy
