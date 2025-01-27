@@ -3,7 +3,7 @@ name: Deploy Mayaops docs to GitHub Pages
 on:
   push:
     branches:
-      - main # Change this to your default branch if it's different
+      - master # Change this to your default branch if it's different
 
 jobs:
   deploy:
