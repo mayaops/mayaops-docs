@@ -23,9 +23,14 @@ jobs:
       - name: Build the site
         run: yarn build
 
-      - name: Deploy to GitHub Pages with USE_SSL=false
+      - name: Deploy to GitHub Pages
         env:
           GIT_USER: mayaops
-          GHCR_TOKEN: ${{ secrets.GHCR_TOKEN }}
           USE_SSL: false
-        run: yarn deploy
+          GHCR_TOKEN: ${{ secrets.GHCR_TOKEN }}
+        run: |
+          # Configure Git remote with token for authentication
+          git remote set-url origin https://$GIT_USER:${{ secrets.GHCR_TOKEN }}@github.com/mayaops/mayaops-docs.git
+
+          # Run Docusaurus deployment
+          yarn deploy
