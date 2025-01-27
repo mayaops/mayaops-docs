@@ -27,8 +27,11 @@ jobs:
           GIT_USER: mayaops
           GHCR_TOKEN: ${{ secrets.GHCR_TOKEN }}
         run: |
-          # Set GitHub remote with token authentication
+          # Disable SSL for Git push
+          git config --global http.sslVerify false
+
+          # Set GitHub remote URL with token authentication
           git remote set-url origin https://$GIT_USER:${{ secrets.GHCR_TOKEN }}@github.com/mayaops/mayaops-docs.git
 
-          # Deploy using docusaurus
-          GIT_USER=$GIT_USER npm run deploy
+          # Deploy using docusaurus with SSL disabled
+          GIT_USER=$GIT_USER USE_SSL=false npm run deploy
