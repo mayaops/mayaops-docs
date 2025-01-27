@@ -3,7 +3,7 @@ name: Deploy Mayaops docs to GitHub Pages
 on:
   push:
     branches:
-      - master  # Adjust if your main branch is different
+      - master  # Adjust if your main branch is named differently
 
 jobs:
   deploy:
@@ -24,6 +24,11 @@ jobs:
 
       - name: Deploy to GitHub Pages
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GIT_USER: mayaops
+          GHCR_TOKEN: ${{ secrets.GHCR_TOKEN }}
         run: |
-          GIT_USER=mayaops npm run deploy
+          # Set GitHub remote with token authentication
+          git remote set-url origin https://$GIT_USER:${{ secrets.GHCR_TOKEN }}@github.com/mayaops/mayaops-docs.git
+
+          # Deploy using docusaurus
+          GIT_USER=$GIT_USER npm run deploy
