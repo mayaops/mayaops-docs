@@ -3,34 +3,29 @@ name: Deploy Mayaops docs to GitHub Pages
 on:
   push:
     branches:
-      - master  # Adjust if your main branch is named differently
+      - main # Change this to your default branch if it's different
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
 
-      - name: Set Git Identity
-        run: |
-          git config --global user.email "bharadwajpalanisamy222@gmail.com"
-          git config --global user.name "bharad22"
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 20 # Use Node.js 18 here
 
       - name: Install dependencies
-        run: yarn install
+        run: npm install
 
-      - name: Build the site
-        run: yarn build
+      - name: Build site
+        run: npm run build
 
       - name: Deploy to GitHub Pages
-        env:
-          GIT_USER: mayaops
-          USE_SSL: false
-          GHCR_TOKEN: ${{ secrets.GHCR_TOKEN }}
-        run: |
-          # Configure Git remote with token for authentication
-          git remote set-url origin https://$GIT_USER:${{ secrets.GHCR_TOKEN }}@github.com/mayaops/mayaops-docs.git
-
-          # Run Docusaurus deployment
-          yarn deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build # Change this if your build output directory is different
