@@ -19,5 +19,6 @@ jobs:
 
       - name: Deploy to GitHub Pages
         env:
+          GIT_USER: "mayaops"  # Replace with your GitHub username
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: npm run deploy
