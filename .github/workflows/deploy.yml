@@ -17,21 +17,15 @@ jobs:
           git config --global user.email "bharadwajpalanisamy222@gmail.com"
           git config --global user.name "bharad22"
 
-      - name: Install dependencies and build
-        run: |
-          yarn install
-          yarn build
+      - name: Install dependencies
+        run: yarn install
 
-      - name: Deploy to GitHub Pages
+      - name: Build the site
+        run: yarn build
+
+      - name: Deploy to GitHub Pages with USE_SSL=false
         env:
           GIT_USER: mayaops
           GHCR_TOKEN: ${{ secrets.GHCR_TOKEN }}
-        run: |
-          # Disable SSL for Git push
-          git config --global http.sslVerify false
-
-          # Set GitHub remote URL with token authentication
-          git remote set-url origin https://$GIT_USER:${{ secrets.GHCR_TOKEN }}@github.com/mayaops/mayaops-docs.git
-
-          # Deploy using docusaurus with SSL disabled
-          GIT_USER=$GIT_USER USE_SSL=false npm run deploy
+          USE_SSL: false
+        run: yarn deploy
