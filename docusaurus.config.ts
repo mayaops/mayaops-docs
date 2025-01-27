@@ -5,7 +5,7 @@ import type * as Preset from "@docusaurus/preset-classic";
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: "Mayaops docs",
+  title: "Mayaops",
   tagline:
     "MayaOps is the cloud for building, shipping, and monitoring applications. No Platform Engineer required.",
   favicon: "img/favicon.ico",
