@@ -1,0 +1,24 @@
+name: Deploy Mayaops docs to GitHub Pages
+
+on:
+  push:
+    branches:
+      - master  # Change this if your main branch is named something else
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Install dependencies
+        run: |
+          yarn install
+          yarn build
+
+      - name: Deploy to GitHub Pages
+        run: |
+          yarn deploy
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
