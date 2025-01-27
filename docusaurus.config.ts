@@ -5,7 +5,7 @@ import type * as Preset from "@docusaurus/preset-classic";
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: "mayaops",
+  title: "Mayaops docs",
   tagline:
     "MayaOps is the cloud for building, shipping, and monitoring applications. No Platform Engineer required.",
   favicon: "img/favicon.ico",
@@ -86,7 +86,7 @@ const config: Config = {
         },
         { to: "/blog", label: "Blog", position: "left" },
         {
-          href: "https://github.com/facebook/docusaurus",
+          href: "https://github.com/mayaops/mayaops-docs",
           label: "GitHub",
           position: "right",
         },
@@ -130,7 +130,7 @@ const config: Config = {
             },
             {
               label: "GitHub",
-              href: "https://github.com/facebook/docusaurus",
+              href: "https://github.com/mayaops/mayaops-docs",
             },
           ],
         },
