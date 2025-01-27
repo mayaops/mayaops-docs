@@ -3,7 +3,7 @@ name: Deploy Mayaops docs to GitHub Pages
 on:
   push:
     branches:
-      - master  # Change this if your main branch is named something else
+      - master  # Adjust if your main branch is different
 
 jobs:
   deploy:
@@ -17,18 +17,13 @@ jobs:
           git config --global user.email "bharadwajpalanisamy222@gmail.com"
           git config --global user.name "bharad22"
 
-      - name: Install dependencies
+      - name: Install dependencies and build
         run: |
           yarn install
           yarn build
 
       - name: Deploy to GitHub Pages
         env:
-          GIT_USER: "mayaops"
-          GHCR_TOKEN: ${{ secrets.GHCR_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          # Set the correct GitHub remote URL with token
-          git remote set-url origin https://$GIT_USER:${{ secrets.GHCR_TOKEN }}@github.com/mayaops/mayaops-docs.git
-
-          # Push to the gh-pages branch
-          npm run deploy
+          GIT_USER=mayaops npm run deploy
