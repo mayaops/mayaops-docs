@@ -19,7 +19,7 @@ function HomepageHeader() {
     <header
       className={clsx(
         "hero",
-        colorMode === "dark" ? "hero--dark" : "hero--light",
+        colorMode === "light" ? "hero--light" : "hero--dark",
         styles.heroBanner
       )}
       style={{ display: "grid" }}
