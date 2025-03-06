@@ -5,6 +5,7 @@
  */
 
 /* You can override the default Infima variables here. */
+
 :root {
   --ifm-color-primary: #2e8555;
   --ifm-color-primary-dark: #29784c;
@@ -18,7 +19,7 @@
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
-[data-theme='dark'] {
+[data-theme="dark"] {
   --ifm-color-primary: #25c2a0;
   --ifm-color-primary-dark: #21af90;
   --ifm-color-primary-darker: #1fa588;
@@ -27,4 +28,64 @@
   --ifm-color-primary-lighter: #32d8b4;
   --ifm-color-primary-lightest: #4fddbf;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+.menu__link {
+  padding: 16px; /* Adjust vertical padding */
+  /* margin-bottom: 10px; */
+}
+.menu__list-item {
+  margin-bottom: 10px;
+}
+.hero__title {
+  font-size: 64px; /* Increase text size */
+  font-weight: 700; /* Make text thicker */
+  letter-spacing: 4px; /* Increase gap between letters */
+  transform: scaleX(1.1); /* Stretch text width */
+  display: inline-block; /* Ensure transform applies properly */
+
+  background: linear-gradient(
+    to right,
+    #7953cd 20%,
+    #00affa 30%,
+    #0190cd 70%,
+    #764ada 80%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-fill-color: transparent;
+  background-size: 300% auto;
+  animation: textShine 8s ease-in-out infinite alternate; /* Slow down animation */
+}
+
+@keyframes textShine {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+.hero--light {
+  background-color: #f8f9fa; /* Light mode background */
+  margin: 50px;
+  border-radius: 12px;
+}
+
+.hero--dark {
+  background-color: #111; /* Dark mode background */
+  margin: 50px;
+  border-radius: 12px;
+}
+.home-doc-btn {
+  padding: 10px;
+  width: 10%;
+  margin: auto;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+}
+.footer {
+  background-color: #121212;
 }
