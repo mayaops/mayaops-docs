@@ -5,23 +5,17 @@ import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Layout from "@theme/Layout";
 import HomepageFeatures from "@site/src/components/HomepageFeatures";
 import Heading from "@theme/Heading";
-import { useColorMode } from "@docusaurus/theme-common";
 import { useHistory } from "react-router-dom";
 
 import styles from "./index.module.css";
 
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
-  const { colorMode } = useColorMode();
   const history = useHistory();
 
   return (
     <header
-      className={clsx(
-        "hero",
-        colorMode === "light" ? "hero--light" : "hero--dark",
-        styles.heroBanner
-      )}
+      className={clsx("hero", styles.heroBanner)}
       style={{ display: "grid" }}
     >
       <div className="container">
