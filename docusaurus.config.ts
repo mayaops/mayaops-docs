@@ -66,7 +66,6 @@ const config: Config = {
       } satisfies Preset.Options,
     ],
   ],
-
   themeConfig: {
     // Replace with your project's social card
     image: "img/docusaurus-social-card.jpg",
@@ -78,13 +77,13 @@ const config: Config = {
         srcDark: "img/logo-dark.svg",
       },
       items: [
-        {
-          type: "docSidebar",
-          sidebarId: "tutorialSidebar",
-          position: "left",
-          label: "Tutorial",
-        },
-        { to: "/blog", label: "Blog", position: "left" },
+        // {
+        //   type: "docSidebar",
+        //   sidebarId: "tutorialSidebar",
+        //   position: "left",
+        //   label: "Docs",
+        // },
+        // { to: "/blog", label: "Blog", position: "left" },
         {
           href: "https://github.com/mayaops/mayaops-docs",
           label: "GitHub",
@@ -96,38 +95,34 @@ const config: Config = {
       style: "dark",
       links: [
         {
-          title: "Docs",
+          title: "Documentation",
           items: [
             {
-              label: "Tutorial",
+              label: "Docs",
               to: "/docs/intro",
             },
           ],
         },
-        {
-          title: "Community",
-          items: [
-            {
-              label: "Stack Overflow",
-              href: "https://stackoverflow.com/questions/tagged/docusaurus",
-            },
-            {
-              label: "Discord",
-              href: "https://discordapp.com/invite/docusaurus",
-            },
-            {
-              label: "X",
-              href: "https://x.com/docusaurus",
-            },
-          ],
-        },
+        // {
+        //   title: "Community",
+        //   items: [
+        //     {
+        //       label: "Stack Overflow",
+        //       href: "https://stackoverflow.com/questions/tagged/docusaurus",
+        //     },
+        //     {
+        //       label: "Discord",
+        //       href: "https://discordapp.com/invite/docusaurus",
+        //     },
+        //     {
+        //       label: "X",
+        //       href: "https://x.com/docusaurus",
+        //     },
+        //   ],
+        // },
         {
           title: "More",
           items: [
-            {
-              label: "Blog",
-              to: "/blog",
-            },
             {
               label: "GitHub",
               href: "https://github.com/mayaops/mayaops-docs",

@@ -1,0 +1,118 @@
+---
+sidebar_position: 3
+---
+
+# Create an Environment
+
+# MayaOps Environment Creation Documentation
+
+## Overview
+
+An environment in MayaOps represents an isolated workspace where you can deploy and manage your applications and resources. Each environment is associated with a specific AWS account and region, allowing for clear separation of concerns and resource management.
+
+## Step-by-Step Environment Creation Process
+
+### 1. Accessing the Environments Section
+
+- From the MayaOps dashboard, locate and click on the "Environments" option in the main navigation menu
+- The Environments page displays existing environments and provides options to create new ones
+
+### 2. Initiating Environment Creation
+
+- Click the "Create Environment" button in the top right corner
+- This opens the environment creation wizard
+
+### 3. Selecting AWS Account
+
+- Choose the AWS account where you want to create the environment
+- Only connected AWS accounts will be displayed in the dropdown
+- Ensure you have the necessary permissions for the selected account
+
+**Key Points:**
+
+- Account must be properly configured with MayaOps
+- Required IAM roles and policies must be in place
+- Account health status is displayed
+
+### 4. Environment Naming
+
+- Enter a unique name for your environment
+- Naming conventions:
+  - Must be unique within your organization
+  - 4 characters long
+  - Can contain only alphabets
+
+**Best Practices:**
+
+- Use descriptive names (e.g., "prod", "sbox", "test", "dev")
+- Follow consistent naming conventions
+- Include team or project identifiers if necessary
+
+### 5. Template Selection
+
+**Available Templates:**
+
+1. **Standard Default Template**
+   - Basic VPC setup
+   - Public and private subnets
+   - Standard security groups
+   - NAT Gateway
+   - Basic monitoring
+
+### 6. Region Selection
+
+- Choose the AWS region where your environment will be provisioned
+- Considerations for region selection:
+  1.  **Latency**: Choose regions closer to your users
+  2.  **Compliance**: Consider data residency requirements
+  3.  **Cost**: Different regions have different pricing
+  4.  **Service availability**: Not all AWS services are available in every region
+
+### 7. Environment Creation
+
+- Click the "Create" button to initiate environment provisioning
+- The process typically takes 5-10 minutes
+- Progress can be monitored in real-time
+
+**Status Indicators:**
+
+```
+* Requested
+* In Process
+* Success
+```
+
+### 8. Post-Creation Steps
+
+After successful environment creation:
+
+1. Review the environment details
+2. Configure additional settings if needed
+3. Set up access controls
+4. Configure monitoring and alerts
+5. Document the environment specifics
+
+## Best Practices
+
+1. **Planning**
+
+   - Carefully consider region selection
+   - Plan IP address ranges
+   - Document design decisions
+
+2. **Naming Convention**
+
+   - Use consistent naming patterns
+   - Include environment type
+   - Consider including team/project identifiers
+
+3. **Security**
+
+   - Review default security groups
+   - Configure additional security layers
+   - Set up proper access controls
+
+4. **Monitoring**
+   - Set up basic monitoring
+   - Configure alerts
+   - Plan for logging
